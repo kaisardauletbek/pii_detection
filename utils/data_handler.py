@@ -18,10 +18,13 @@ def do_load_data(DATA_PATH):
     external = json.load(open(DATA_PATH+"pii_dataset_fixed.json"))
     print("external datapoints: ", len(external))
 
-    moredata = json.load(open(DATA_PATH+"moredata_dataset_fixed.json"))
-    print("moredata datapoints: ", len(moredata))
+    # moredata = json.load(open(DATA_PATH+"moredata_dataset_fixed.json"))
+    # print("moredata datapoints: ", len(moredata))
 
-    data = external+p+n[:len(n)//3] # moredata
+    mixtral = json.load(open(DATA_PATH+"mixtral-8x7b-v1.json"))
+    print("mixtral ", len(mixtral))
+
+    data = external+mixtral+p+n[:len(n)//3] # moredata
     print("combined: ", len(data))
     return data
 
